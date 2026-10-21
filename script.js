@@ -7,12 +7,50 @@
 
 const frame = document.querySelector('.frame');
 let currentItem = 0;
-let totalItems = 10; // change this if you do more than 10 items
+let totalItems = 20; // change this if you do more than 10 items
 
 async function getData() {
-    // YOUR CODE HERE
+    try {
+        const response = await fetch(
+            'https://api.thecatapi.com/v1/images/search?limit=20',
+            {
+                headers: {
+                    'x-api-key': 'live_1vLcPdSe02SkJyFzHg11I47gQZFHbjBikxQfaohtFAaVFfrM7kVOHhaxxb1dmV1Q'
+                }
+            }
+        );
 
+        if (!response.ok) {
+            throw new Error('Failed to fetch cat images');
+        }
+
+        const data = await response.json();
+
+        frame.innerHTML = '';
+        currentItem = 0;
+
+        data.forEach((cat, index) => {
+            const li = document.createElement('li');
+            const img = document.createElement('img');
+
+            img.src = cat.url;
+            img.alt = 'Cat image ' + (index + 1);
+
+            if (index === 0) {
+                li.classList.add('active');
+            }
+
+            li.appendChild(img);
+            frame.appendChild(li);
+        });
+
+        totalItems = frame.querySelectorAll('li').length;
+
+    } catch (error) {
+        console.error('Error fetching cat images:', error);
+    }
 }
+
 
 function goToItem(index) {
     const items = frame.querySelectorAll('li');

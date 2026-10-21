@@ -2,6 +2,20 @@
     margin: 0;
     padding: 0;
 }
+h1{
+    font-family: 'Henny Penny', cursive;
+    text-align: center;
+    font-size: 3em;
+    color: #fb2b8d;
+    margin-top: 1em;
+}
+h2{
+    font-family: 'Jim Nightshade', cursive;
+    text-align: center;
+    font-size: 2em;
+    color: #fb2b8d;
+    margin-top: 0.5em;
+}
 
 html {
     background-color: #eefbf8;
