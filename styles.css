@@ -1,8 +1,10 @@
 body {
-font-family: Arial, sans-serif;
+  font-family: "Pixelify Sans", sans-serif;
 max-width: 500px;
 margin: 40px auto;
 padding: 0 20px;
+  background-image: url('poked.jpg');
+  background-size: cover;
 
 
 }
@@ -20,4 +22,12 @@ padding: 0;
     padding: 10px;
     border-radius: 5px;
     text-transform: capitalize;
+}
+
+
+.pixelify-sans {
+  font-family: "Pixelify Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
 }
